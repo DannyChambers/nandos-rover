@@ -1,0 +1,9 @@
+@import "../../../components/00-tokens/colors/_index.scss";
+@import "../../../components/00-tokens/dimensions/_index.scss";
+
+.control-panel {
+	background: $black;
+	border: 2px solid $white;
+	border-radius: $radius-full;
+	padding: $spacing-full;
+}

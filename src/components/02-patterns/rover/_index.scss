@@ -1,0 +1,66 @@
+@import "../../../components/00-tokens/colors/_index.scss";
+@import "../../../components/00-tokens/dimensions/_index.scss";
+@import "../../../components/00-tokens/animation/_index.scss";
+
+.rover {
+	display: block;
+	width: $dimension-quadruple;
+	height: $dimension-quintuple;
+	margin-left: -$dimension-triple;
+	position: absolute;
+	transition: bottom 1s ease-in-out, left 1s ease-in-out;
+
+	div {
+		width: 100%;
+		height: 100%;
+		transform: perspective(0em) rotateX(-30deg) rotateY(90deg);
+		z-index: 999;
+		transition: transform 0.4s ease-in-out;
+
+		&.rover--orientation-E {
+			transform: perspective(0em) rotateX(-30deg) rotateY(0deg);
+		}
+
+		&.rover--orientation-S {
+			transform: perspective(0em) rotateX(-30deg) rotateY(270deg);
+		}
+		&.rover--orientation-W {
+			transform: perspective(0em) rotateX(-30deg) rotateY(180deg);
+		}
+
+		span {
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+
+		&.rover--active {
+			span {
+				animation: waddle 0.2s infinite;
+			}
+		}
+	}
+
+	&--oob {
+		transform: perspective(0em) rotateX(-30deg) rotateY(20deg)
+			translateY(-800px);
+		transition: transform 0.4s ease-in-out;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: -100px;
+		right: -50px;
+		width: 50px;
+		height: 100px;
+		margin: 0 0 0 20px;
+		background: rgba(1, 1, 1, 0.4);
+		transform: perspective(50em) skewX(30deg);
+		border-radius: 100px;
+		filter: blur(10px);
+	}
+}

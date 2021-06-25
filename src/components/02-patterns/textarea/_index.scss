@@ -1,0 +1,21 @@
+@import "../../../components/00-tokens/colors/_index.scss";
+@import "../../../components/00-tokens/dimensions/_index.scss";
+
+.textarea {
+	textarea {
+		width: 200px;
+		height: 120px;
+		padding: $spacing-half;
+		margin-bottom: $spacing-full;
+		font-size: 1.6rem;
+		background: $white;
+		color: $black;
+		border-radius: $radius-half;
+		resize: none;
+
+		&:disabled {
+			background: $grey;
+			pointer-events: none;
+		}
+	}
+}

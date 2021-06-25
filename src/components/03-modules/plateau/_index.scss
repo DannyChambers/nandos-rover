@@ -1,0 +1,11 @@
+@import "../../../components/00-tokens/colors/_index.scss";
+@import "../../../components/00-tokens/dimensions/_index.scss";
+
+.plateau {
+	height: 60%;
+	width: 50%;
+	// margin-bottom: $dimension-septuple;
+	z-index: 99;
+	transform: perspective(50em) rotateX(30deg);
+	transform-style: preserve-3d;
+}

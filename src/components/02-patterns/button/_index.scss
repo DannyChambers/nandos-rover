@@ -1,0 +1,20 @@
+@import "../../../components/00-tokens/colors/_index.scss";
+@import "../../../components/00-tokens/dimensions/_index.scss";
+
+.button {
+	display: inline-block;
+	padding: 0 $spacing-full;
+	line-height: $dimension-double;
+	font-size: 1.6rem;
+	background: $nandos-green-1;
+	color: $white;
+	font-weight: bold;
+	border: none;
+	border-radius: $radius-half;
+	cursor: pointer;
+
+	&:disabled {
+		background: lighten($nandos-green-1, 50%);
+		pointer-events: none;
+	}
+}

@@ -1,0 +1,38 @@
+//Zoom
+@keyframes zoomin {
+	0% {
+		transform: scale(0.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+//Float
+@keyframes floatinspace {
+	0% {
+		transform: translate(0, 0);
+	}
+	15% {
+		transform: translate(2px, 2px);
+	}
+	45% {
+		transform: translate(2px, -2px);
+	}
+	70% {
+		transform: translate(-2px, 2px);
+	}
+	100% {
+		transform: translate(-2px, -2px);
+	}
+}
+
+//Waddle
+@keyframes waddle {
+	0% {
+		transform: rotateZ(1deg);
+	}
+	100% {
+		transform: rotateZ(-1deg);
+	}
+}
