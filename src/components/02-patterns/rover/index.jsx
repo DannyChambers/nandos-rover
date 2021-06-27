@@ -61,7 +61,11 @@ const Rover = (props) => {
 			if (newMArray.length === 0) {
 				setActive("false");
 				clearTimeout(timer);
-				props.roverReport(props.navigationData.id);
+				props.roverReport(
+					props.navigationData.id,
+					position,
+					orientation
+				);
 			}
 
 			setManoeuvres(newMArray);
@@ -69,9 +73,6 @@ const Rover = (props) => {
 	}, [orientation, position, props.navigationData.status]);
 
 	const move = (manoeuvre, ori, pos) => {
-		// console.log("manoeuvre: ", manoeuvre);
-		// console.log("ori: ", ori);
-		// console.log("pos: ", pos);
 		switch (manoeuvre) {
 			case "L":
 				console.log("Turn left");

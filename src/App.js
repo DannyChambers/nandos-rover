@@ -46,18 +46,20 @@ MMRMMRMRRM`
 		dataAsArray.shift(); //Remove the grid size data
 
 		dataAsArray.map((item, index) => {
-			//Make pairs of instructions and add to queue
-			if (index % 2 === 0) {
-				const newPair = dataAsArray.slice(index, index + 2);
-				const origins = newPair[0].split(" ");
-				const newDataObj = {
-					id: makeID(),
-					startPosition: [...origins[0], ...origins[1]],
-					orientation: origins[2],
-					manoeuvres: newPair[1].split(""),
-					status: null,
-				};
-				newQueue.push(newDataObj);
+			if (item) {
+				//Make pairs of instructions and add to queue
+				if (index % 2 === 0) {
+					const newPair = dataAsArray.slice(index, index + 2);
+					const origins = newPair[0].split(" ");
+					const newDataObj = {
+						id: makeID(),
+						startPosition: [...origins[0], ...origins[1]],
+						orientation: origins[2],
+						manoeuvres: newPair[1].split(""),
+						status: null,
+					};
+					newQueue.push(newDataObj);
+				}
 			}
 		});
 
@@ -71,7 +73,7 @@ MMRMMRMRRM`
 		return randLetter + Date.now();
 	};
 
-	const processQueue = (dataObjID) => {
+	const processQueue = (dataObjID, endPos, endOri) => {
 		if (queue.length) {
 			console.log("Called process queue");
 
@@ -80,8 +82,10 @@ MMRMMRMRRM`
 
 			if (dataObjID) {
 				console.log(
-					"processQueue called from a finished rover: ",
-					dataObjID
+					"processQueue called from a finished rover ID/endPos/endOri: ",
+					dataObjID,
+					endPos,
+					endOri
 				);
 				//Remove the active status from the used rover..
 				newQueue.map((dataObj, index) => {
